@@ -1,0 +1,63 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2020 yuichi.akutsu
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.3.5.RELEASE"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: "java"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    // webApp
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+
+    // util
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.11'
+    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+
+    // db
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.2'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+
+    // test
+    testImplementation(group: 'junit', name: 'junit', version: '4.12') {
+        exclude module: 'hamcrest-core'
+    }
+    testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testImplementation group: 'org.dbunit', name: 'dbunit', version: '2.5.4'
+}
