@@ -45,7 +45,7 @@ import java.util.List;
  * <p>@RequestMappingで対応するURLを指定</p>
  */
 @RestController
-@RequestMapping("/items")
+@RequestMapping("items")
 public class ItemController {
 
   private final ItemMapper itemMapper;
