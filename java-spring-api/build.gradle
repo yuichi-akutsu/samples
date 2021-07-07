@@ -44,6 +44,14 @@ dependencies {
     // webApp
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
 
+    // QRCode
+    implementation group: 'com.google.zxing', name: 'javase', version: '3.4.1'
+
+    implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.15.0'
+    implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
+
+
+
     // util
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.11'
