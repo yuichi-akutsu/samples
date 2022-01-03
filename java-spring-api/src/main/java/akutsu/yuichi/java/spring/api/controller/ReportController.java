@@ -34,17 +34,14 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import net.sf.jasperreports.engine.*;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
@@ -55,7 +52,7 @@ import java.util.Hashtable;
  * レポート(PDF)出力のサンプル
  */
 @RestController
-@RequestMapping("ticket")
+@RequestMapping("reports")
 public class ReportController {
 
     /**
@@ -98,7 +95,7 @@ public class ReportController {
     ResponseEntity<byte[]> getPdfTicket(@RequestParam(value = "title", required = false) String title,
                                         @RequestParam(value = "content", required = false) String content) {
         // Jasperのテンプレートを取得
-        URL templateUrl = this.getClass().getResource("/report/ticket.jasper");
+        URL templateUrl = this.getClass().getResource("/report/report.jasper");
         if (templateUrl == null) {
             throw new SystemException();
         }

@@ -26,6 +26,8 @@
 package akutsu.yuichi.java.spring.api.configuration;
 
 import akutsu.yuichi.java.spring.api.exception.SystemException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -45,14 +47,18 @@ import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 @ControllerAdvice
 public class ControllerAdvisor {
 
+    Logger logger = LoggerFactory.getLogger(ControllerAdvisor.class);
+
     @ExceptionHandler(SystemException.class)
     public ResponseEntity<String> systemException(SystemException systemException) {
         String message = defaultIfBlank(systemException.getMessage(), "system error");
+        logger.error(systemException.getMessage(), systemException);
         return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> systemException(Exception exception) {
+        logger.error(exception.getMessage(), exception);
         return new ResponseEntity<>("system error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

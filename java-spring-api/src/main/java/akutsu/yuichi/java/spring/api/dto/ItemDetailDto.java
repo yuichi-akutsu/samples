@@ -25,17 +25,26 @@
 
 package akutsu.yuichi.java.spring.api.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * 商品詳細情報
  */
-@Getter
-@Setter
 public class ItemDetailDto extends ItemDto {
-  /**
-   * 商品説明
-   */
-  private String description;
+    /**
+     * 商品説明
+     */
+    private String description;
+
+    /**
+     * @return 商品説明
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description 商品説明
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

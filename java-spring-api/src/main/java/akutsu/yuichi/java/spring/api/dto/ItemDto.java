@@ -25,21 +25,44 @@
 
 package akutsu.yuichi.java.spring.api.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * 商品情報
  */
-@Getter
-@Setter
 public class ItemDto {
-  /**
-   * 商品ID
-   */
-  private String id;
-  /**
-   * 商品名
-   */
-  private String name;
+    /**
+     * 商品ID
+     */
+    private String id;
+    /**
+     * 商品名
+     */
+    private String name;
+
+    /**
+     * @return 商品ID
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id 商品ID
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return 商品名
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name 商品名
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 }
