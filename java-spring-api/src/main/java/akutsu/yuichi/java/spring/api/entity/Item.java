@@ -25,13 +25,62 @@
 
 package akutsu.yuichi.java.spring.api.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
+/**
+ * 商品
+ */
 public class Item {
-  String id;
-  String name;
-  String description;
+    /**
+     * 商品ID
+     */
+    String id;
+    /**
+     * 商品名
+     */
+    String name;
+    /**
+     * 商品説明
+     */
+    String description;
+
+    /**
+     * @return 商品ID
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id 商品ID
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return 商品名
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name 商品名
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return 商品説明
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description 商品説明
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
